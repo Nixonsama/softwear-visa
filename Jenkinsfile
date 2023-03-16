@@ -14,10 +14,16 @@ pipeline {
          sh 'mvn clean package'
        }
      }
-      stage('codequality'){
+     stage('codequality'){
        steps{
          sh 'mvn sonar:sonar'
        }
      }
+     stage('uploadArtifacts'){
+       steps{
+         sh 'mvn deploy'
+       }
+     }
    }
 }
+
