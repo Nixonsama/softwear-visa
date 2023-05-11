@@ -9,5 +9,10 @@ pipeline{
         sh "mvn clean package"
       }
     }
+    stage('codeQuality'){
+      steps{
+        sh "mvn sonar:sonar"
+      }
+    }
   }
 }
